@@ -1,0 +1,119 @@
+.hero-section {
+  width: 100%;
+  height: 700px; // Altura fixa solicitada
+  position: relative;
+  z-index: 0; /* Garante que o hero fique abaixo do header */
+  overflow: hidden;
+
+  .hero-swiper {
+    width: 100%;
+    height: 100%;
+  }
+
+  .hero-slide {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+
+    &__overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0.05) 0%,
+        rgba(0, 0, 0, 0.1) 100%
+      );
+      display: flex;
+      align-items: flex-end; // Conteúdo na parte de baixo para mobile
+      padding: 40px 20px;
+      box-sizing: border-box;
+    }
+
+    &__content {
+      color: #fff;
+      max-width: 100%;
+      animation: fadeInUp 0.8s ease-out;
+    }
+
+    &__button {
+      background: #fff;
+      text-decoration: underline;
+      color: #000;
+      border: none;
+      padding: 12px 24px;
+      font-weight: 400;
+      letter-spacing: 1px;
+      cursor: pointer;
+      transition: transform 0.2s;
+
+      &:active {
+        transform: scale(0.95);
+      }
+    }
+  }
+
+  .hero-bottom-bar {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 16px 30px 16px;
+    box-sizing: border-box;
+    z-index: 2;
+  }
+
+  .hero-bottom-bar .hero-slide__button {
+    margin: 0;
+    background: rgba(255,255,255,0.20);
+    color: #fff;
+    border: #fff 1px solid;
+  }
+
+  .hero-bottom-bar .swiper-pagination {
+    position: static;
+    margin: 0;
+    border-radius: 20px;
+    padding: 6px 18px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .swiper-pagination {
+    bottom: 30px !important;
+    right: 30px !important;
+    left: auto !important;
+    width: auto !important;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+  }
+
+  // Estilização das bolinhas do Swiper (Pagination)
+  .swiper-pagination-bullet {
+    background: #fff;
+    opacity: 0.5;
+    &-active {
+      opacity: 1;
+    }
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

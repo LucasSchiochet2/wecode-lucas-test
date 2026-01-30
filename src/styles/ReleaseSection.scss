@@ -1,0 +1,122 @@
+.release-section {
+  padding: 30px 0; // Padding vertical para a seção
+  background-color: #fff;
+
+  &__title {
+    font-size: 20px;
+    font-weight: 400;
+    text-align: left;
+    margin-left: 20px;
+    color: #1a1a1a;
+  }
+}
+.product-card {
+  width: 220px;
+  height: 281px;
+  background: #fff;
+  padding: 8px;
+  margin-left: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.product-card__image-wrapper {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.product-card__image {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  background-color: #f7f7f7;
+  padding: 0px !important;
+}
+
+.product-card__favorite {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  border: none;
+  padding: 0px !important;
+  cursor: pointer;
+  background: transparent;
+}
+
+.product-card__cart {
+  position: absolute;
+  top: 190px;
+  right: 6px;
+  border: none;
+  padding: 0px !important;
+  cursor: pointer;
+  background: transparent;
+}
+.product-card__discount-badge {
+  position: absolute;
+  left: 6px;
+  top: 190px;
+  background: transparent;
+  color: #B11B26;
+  font-weight: 700;
+  font-size: 13px;
+  border-radius: 4px;
+  padding: 2px 7px;
+  z-index: 2;
+  display: inline-block;
+}
+.cart-message {
+  position: fixed;
+  top: 90%;
+  left: 30px;
+  background: #222;
+  color: #fff;
+  padding: 16px 24px;
+  font-size: 16px;
+  z-index: 9999;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  animation: fadeInOut 3s linear;
+}
+
+@keyframes fadeInOut {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  10% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  90% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+}
+
+.product-card__info {
+  margin-top: 3px;
+  text-align: left;
+}
+
+.product-card__name {
+  font-size: 16px;
+  font-weight: 400;
+  color: #333;
+  text-align: left;
+  margin: 0px !important;
+}
+
+.product-card__price {
+  font-size: 16px;
+  font-weight: 400;
+  color: #000;
+  text-align: left;
+  margin: 0px !important;
+}
