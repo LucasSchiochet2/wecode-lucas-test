@@ -1,19 +1,35 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { FreeMode, Scrollbar } from 'swiper/modules'; // Importe FreeMode e Scrollbar
-import categories from '../assets/releaseSection';
-// Import Swiper styles
+import { FreeMode, Scrollbar } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/free-mode';
-import 'swiper/css/scrollbar'; // Estilo para a barra de rolagem, se desejar
+import 'swiper/css/scrollbar';
 import { AddCartIcon, FavoriteIcon, FavoriteFilledIcon } from '../utils/icons';
 import { getDiscountedPrice } from '../utils/utils';
 import '../styles/ReleaseSection.scss';
+
+import { getProducts } from '../utils/utils';
 
 
 const ReleaseSection = () => {
   const [favorites, setFavorites] = useState([]);
   const [cartMessage, setCartMessage] = useState(null);
+  const [products, setProducts] = useState([]);
+  const [, setLoading] = useState(true);
+   useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const data = await getProducts()
+        setProducts(data)
+      } catch (error) {
+        console.error("Erro ao buscar categorias:", error)
+      } finally {
+        setLoading(false)
+      }
+    }
+
+    fetchData()
+  }, [])
 
   const handleFavorite = (id) => {
     setFavorites((prev) =>
@@ -21,7 +37,7 @@ const ReleaseSection = () => {
     );
   };
 
-  const handleAddCart = (name) => {
+  const handleAddCart = () => {
     setCartMessage(`Adicionado ao carrinho!`);
     setTimeout(() => setCartMessage(null), 5000);
   };
@@ -39,7 +55,7 @@ const ReleaseSection = () => {
         freeMode={true}
         className="release-swiper"
       >
-        {categories.map((release) => (
+        {products.map((release) => (
           <SwiperSlide key={release.id} className="release-slide">
             <div className="product-card">
               <div className="product-card__image-wrapper">

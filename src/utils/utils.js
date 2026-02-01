@@ -1,30 +1,41 @@
+import posts from '../assets/posts.js';
+import heroSlides from '../assets/heroSlides.js';
+import menu from '../assets/menu.js';
+import release from '../assets/releaseSection.js';
+import categories from '../assets/categorySection.js';
 
-export   function getProducts() {
+// ----------------- Funções para buscar os dados -----------------
+export function getProducts() {
      return new Promise((res) => {
-          res([
-               {
-                    name: 'Scarpin Sligback Bebecê Salto Médio Taça Detalhe Metalizado',
-                    image: '/static/images/produtos/produto-1.png',
-                    price: { amount: 179.9, isDiscount: null },
-                    id: 1,
-               },
-               {
-                    name: 'Coturno Feminino Bebecê Tratorado Detalhe Tachas',
-                    image: '/static/images/produtos/produto-2.png',
-                    price: { amount: 349.9, isDiscount: 315 },
-                    id: 2,
-               },
-               {
-                    name: 'Scarpin Bebecê Salto Alto Taça Com Fivela',
-                    image: '/static/images/produtos/produto-3.png',
-                    price: { amount: 159.90, isDiscount: null },
-                    id: 3,
-               },
-          ]);
+          res(release);
      });
 }
+export function getPosts(){
+     return new Promise((res) => {
+          res(posts);
+     });
+}
+export function getHeroSlides(){
+     return new Promise((res) => {
+          res(heroSlides);
+     }
+     );
+}
+export function getMenu(){
+     return new Promise((res) => {
+          res(menu);
+     }
+     );
+} 
+export function getCategories(){
+     return new Promise((res) => {
+          res(categories);
+     }
+     );
+}
 
-// Calcula o preço com desconto
+
+// ----------------- Função para calcular preço com desconto -----------------
 export function getDiscountedPrice(price, percent) {
      const priceNum = typeof price === 'string' ? parseFloat(price.replace(',', '.')) : price;
      if (!percent || percent <= 0) return priceNum;

@@ -1,15 +1,28 @@
 import React from 'react';
+import { useState, useEffect } from 'react';
+import { getHeroSlides } from '../utils/utils';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Pagination, Autoplay, EffectFade } from 'swiper/modules';
-import slides from '../assets/heroSlides';
-// Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/effect-fade';
 import '../styles/HeroCarousel.scss';
 
 const Hero = () => {
-  
+  const [slides, setSlides] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const data = await getHeroSlides();
+        setSlides(data);
+      } catch (error) {
+        console.error("Erro ao buscar slides do hero:", error);
+      }
+    };
+
+    fetchData();
+  }, []);
 
   return (
     <section className="hero-section">

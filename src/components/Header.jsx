@@ -3,14 +3,30 @@ import '../styles/header.scss';
 
 import {CloseIcon, ComprasIcon, LogoBlackIcon, LogoWhiteIcon, MenuIcon, PersonIcon, SearchIcon } from '../utils/icons';
 import useScrollPosition from '../hooks/useScrollPosition';
-import menuItems from '../assets/menu';
-import { useState } from 'react';
-
+import { useState, useEffect } from 'react';
+import { getMenu } from '../utils/utils';
 
 const Header = () => {
   const scrolled = useScrollPosition(10);
   const [menuOpen, setMenuOpen] = useState(false);
   const [openSub, setOpenSub] = useState(null);
+
+  const [menuItems, setMenuItems] = useState([]);
+  const [, setLoading] = useState(true)
+
+   useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const data = await getMenu()
+        setMenuItems(data)
+      } catch (error) {
+        console.error("Erro ao buscar menu:", error)
+      } finally {
+        setLoading(false)
+      }
+    }
+    fetchData()
+  }, [])
 
   const handleSubToggle = (label) => {
     setOpenSub((prev) => (prev === label ? null : label));
