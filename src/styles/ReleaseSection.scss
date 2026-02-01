@@ -1,12 +1,15 @@
 .release-section {
-  padding: 30px 0; // Padding vertical para a seção
+  padding-top: 32px;
+  padding-bottom: 48px; // Padding vertical para a seção
   background-color: #fff;
 
   &__title {
-    font-size: 20px;
+    font-size: 16px;
     font-weight: 400;
     text-align: left;
     margin-left: 20px;
+    margin-top: 0px!important;
+    margin-bottom: 0px!important;
     color: #1a1a1a;
   }
 }
@@ -14,7 +17,10 @@
   width: 220px;
   height: 281px;
   background: #fff;
-  padding: 8px;
+  padding-left: 8px;
+  padding-right: 8px;
+  padding-top: 16px;
+  padding-bottom: 0px;
   margin-left: 10px;
   display: flex;
   flex-direction: column;
@@ -106,15 +112,15 @@
 }
 
 .product-card__name {
-  font-size: 16px;
-  font-weight: 400;
+  font-size: 12px;
+  font-weight: 300;
   color: #333;
   text-align: left;
   margin: 0px !important;
 }
 
 .product-card__price {
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 400;
   color: #000;
   text-align: left;

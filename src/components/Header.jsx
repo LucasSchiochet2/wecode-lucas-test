@@ -107,7 +107,9 @@ const Header = () => {
                       {item.children && openSub === item.label && (
                         <ul className="dropdown-submenu">
                           {item.children.map((sub) => (
-                            <li key={sub.label}>{sub.label}</li>
+                            <li key={sub.label}>
+                              <span>{sub.label}</span>
+                            </li>
                           ))}
                         </ul>
                       )}

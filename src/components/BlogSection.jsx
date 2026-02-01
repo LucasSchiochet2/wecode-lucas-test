@@ -53,7 +53,7 @@ export default function BlogSection() {
                 <div className="blog-card__content">
                   <h3 className="blog-card__title">{post.title}</h3>
                   <p className="blog-card__description">{post.description}</p>
-                  <p href="#">Saiba Mais!</p>
+                  <p className='blog-card__more' href="#">Saiba Mais!</p>
                 </div>
               </article>
             </SwiperSlide>

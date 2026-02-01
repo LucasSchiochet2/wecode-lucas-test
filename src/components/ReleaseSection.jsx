@@ -95,7 +95,7 @@ const ReleaseSection = () => {
 
                   {release.descount_percent > 0 ? (
                     <>
-                      <span style={{ textDecoration: 'line-through', color: '#acacac', marginRight: 8 }}>
+                      <span style={{fontSize: '14px', textDecoration: 'line-through', color: '#acacac', marginRight: 8 }}>
                         R$ {parseFloat(release.price).toFixed(2)}
                       </span>
                       <span className="product-card__price" style={{ color: '#111', fontWeight: 400 }}>
